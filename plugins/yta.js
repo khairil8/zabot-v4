@@ -13,7 +13,7 @@ let handler = async(m, { conn, args, isPrems, isOwner }) => {
 `.trim(), m)
     if (!isLimit) {
         buf = await conn.getBuffer(dl_link)
-        conn.sendMessage(m.chat, {document: buf, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
+        conn.sendFile(m.chat, buf, '', wm, m)
     }
 }
 handler.help = ['mp3', 'a'].map(v => 'yt' + v + ` <url>`)
